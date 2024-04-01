@@ -8,9 +8,9 @@
 <a href="https://ibb.co/pnMLG9h"><img src="https://i.ibb.co/rvzwT1d/banner.png" alt="banner" border="0"></a>
 ## 플러터 구조
 - 현재 구조는 MVVM 디자인패턴을 채택했습니다.
-- MVP와 맞지 않은 패턴입니다. 이 패턴의 치명적 단점은 구조 구현이 복잡하고 어렵다는 점입니다.
+- 최소 기능의 MVP와 맞지 않은 패턴입니다. 이 패턴의 치명적 단점은 구조 구현이 복잡하고 어렵다는 점입니다.
 - 이러한 구조를 채택한 이유는 큰 프로젝트에 맞는 구조를 공부하다가 마침 프로젝트 제의가 들어와서 적용해보았습니다.
-- MVVM은 기존 MVC에서 뷰와 모델의 지나친 의존관계를 개선하고자 사용하고 있는 패턴입니다.
+- MVVM은 기존 MVC에서 뷰와 모델의 지나친 의존관계를 개선하고 각각 독립적으로 이용하려는 패턴입니다.
 
 ---
 - constants
@@ -27,6 +27,12 @@
   - 앱 전반적으로 재사용 가능한 함수와 클래스를 관리합니다. constant와 차이점은 utils는 주로 기능적인 부분을 지원합니다. constant는 변경되지 않는 데이터를 관리합니다.
 ## 아키텍처 구조
 <a href="https://ibb.co/9T4X1bx"><img src="https://i.ibb.co/jMwKQyC/image.png" alt="image" border="0"></a>
+
+- 사용자가 이미지를 서버에 전송하면 일단 firebase storage에 이미지를 담습니다.
+- firebae functions는 스토리지에 새로운 이미지가 올라오면 이 이미지를 aws ai server로 전송합니다.
+- ai server는 이미지가 현수막인지 판단하고 naver ocr를 이용해서 텍스트를 추출합니다.
+- 추출된 텍스트를 옥외광고법 8조를 학습한 gpt가 합불법 판단하고, 이 데이터를 다시 firebase functions v2로 전송합니다.
+- ai server로 부터 받은 데이터는 cloud firestore에 저장되고, 플러터로 데이터를 표기합니다. 
 
 ## 플로우 차트
 <a href="https://ibb.co/6rZCZrz"><img src="https://i.ibb.co/7jzmzjP/9.png" alt="9" border="0"></a>
