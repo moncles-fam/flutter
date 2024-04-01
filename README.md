@@ -31,7 +31,8 @@
 - firebae functions는 스토리지에 새로운 이미지가 올라오면 이 이미지를 aws ai server로 전송합니다.
 - ai server는 이미지가 현수막인지 판단하고 naver ocr를 이용해서 텍스트를 추출합니다.
 - 추출된 텍스트를 옥외광고법 8조를 학습한 gpt가 합불법 판단하고, 이 데이터를 다시 firebase functions v2로 전송합니다.
-- ai server로 부터 받은 데이터는 cloud firestore에 저장되고, 플러터로 데이터를 표기합니다. 
+- ai server로 부터 받은 데이터는 cloud firestore에 저장되고, 플러터로 데이터를 표기합니다.
+- 깃주소 : https://github.com/moncles-fam/firebase
 
 ## 플로우 차트
 <a href="https://ibb.co/6rZCZrz"><img src="https://i.ibb.co/7jzmzjP/9.png" alt="9" border="0"></a>
